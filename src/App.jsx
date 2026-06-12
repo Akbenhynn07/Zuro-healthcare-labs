@@ -311,7 +311,7 @@ export default function App() {
 
         {/* Logo Badge */}
         <div className="logo-badge" style={{ marginTop: '12px', padding: 0, overflow: 'hidden', backgroundColor: 'transparent' }}>
-          <img src="/logo.png" alt="Zuro Labs Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+          <img src="/Zuro_logo.png" alt="Zuro Labs Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
 
         {/* Header */}

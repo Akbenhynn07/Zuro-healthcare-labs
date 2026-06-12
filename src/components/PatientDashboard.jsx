@@ -508,7 +508,7 @@ export default function PatientDashboard({ user, onLogout }) {
         <div>
           <div className="sidebar-brand">
             <div className="sidebar-logo" style={{ backgroundColor: 'transparent', padding: 0, overflow: 'hidden' }}>
-              <img src="/logo.png" alt="Zuro Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              <img src="/Zuro_logo.png" alt="Zuro Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <h2>Zuro Patient</h2>
           </div>
