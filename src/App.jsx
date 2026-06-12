@@ -310,23 +310,8 @@ export default function App() {
         </div>
 
         {/* Logo Badge */}
-        <div className="logo-badge" style={{ marginTop: '12px' }}>
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2.2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="M4.8 2.3A.3.3 0 1 0 5 2a.3.3 0 0 0-.2.3z" />
-            <path d="M8.2 2.3A.3.3 0 1 0 8 2a.3.3 0 0 0 .2.3z" />
-            <path d="M5 2v3a5 5 0 0 0 5 5h4a5 5 0 0 0 5-5V2" />
-            <path d="M14 10h.01" />
-            <path d="M12 10v4a5 5 0 0 0 5 5h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-1" />
-            <path d="M17 14h.01" />
-          </svg>
+        <div className="logo-badge" style={{ marginTop: '12px', padding: 0, overflow: 'hidden', backgroundColor: 'transparent' }}>
+          <img src="/logo.png" alt="Zuro Labs Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
 
         {/* Header */}

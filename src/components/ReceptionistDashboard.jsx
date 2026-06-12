@@ -318,18 +318,8 @@ export default function ReceptionistDashboard({ user, onLogout }) {
       <aside className="dashboard-sidebar" style={{ borderRight: '1.5px solid #eef2f6' }}>
         <div>
           <div className="sidebar-brand">
-            <div className="sidebar-logo" style={{ backgroundColor: '#6366f1' }}>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2.5" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
+            <div className="sidebar-logo" style={{ backgroundColor: 'transparent', padding: 0, overflow: 'hidden' }}>
+              <img src="/logo.png" alt="Zuro Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <h2>Hospital OS</h2>
           </div>
