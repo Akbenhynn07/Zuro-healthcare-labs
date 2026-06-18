@@ -2355,7 +2355,38 @@ input:checked + .switch-slider:before {
 }
 
 /* --- Mobile Responsiveness Adjustments --- */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  .dashboard-container {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .dashboard-sidebar {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    padding: 16px !important;
+    border-right: none !important;
+    border-bottom: 1.5px solid rgba(0,0,0,0.1) !important;
+  }
+  .sidebar-menu {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .sidebar-menu-item {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  .main-panel {
+    width: 100% !important;
+    padding: 16px !important;
+    overflow-x: hidden !important;
+  }
   .dashboard-header {
     flex-direction: column;
     align-items: flex-start;
@@ -2366,7 +2397,7 @@ input:checked + .switch-slider:before {
   }
   .filter-action-bar {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
   .filter-action-bar > div {
     flex-direction: column;
@@ -2379,20 +2410,10 @@ input:checked + .switch-slider:before {
   .stat-summary-grid {
     grid-template-columns: 1fr !important;
   }
-  .main-panel {
-    padding: 16px !important;
-  }
   .custom-chart-flex {
     flex-direction: column;
     height: auto;
     gap: 16px;
-  }
-  .dashboard-sidebar {
-    padding: 16px !important;
-  }
-  .sidebar-menu-item {
-    font-size: 14px;
-    padding: 10px 12px;
   }
   .hospital-grid, .branch-grid, .features-grid, .auth-features-grid {
     grid-template-columns: 1fr !important;
@@ -2400,7 +2421,7 @@ input:checked + .switch-slider:before {
   .login-card {
     padding: 32px 24px 24px 24px;
     margin: 16px;
-    max-width: 100%;
+    max-width: calc(100% - 32px) !important;
   }
   .console-table th, .console-table td {
     padding: 12px 8px;
@@ -2409,6 +2430,7 @@ input:checked + .switch-slider:before {
   .table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
   .ai-insights-panel > div {
     flex-direction: column;
