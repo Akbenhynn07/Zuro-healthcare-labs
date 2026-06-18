@@ -169,6 +169,7 @@ export default function PatientDashboard({ user, onLogout }) {
   const [selectedHospital, setSelectedHospital] = useState(null);
   const [validationError, setValidationError] = useState('');
   const [bookingForm, setBookingForm] = useState({ date: '', time: '', age: '', gender: '', symptoms: '' });
+  const [isRecordingVoice, setIsRecordingVoice] = useState(false);
   
   // Smart rescheduling & cancellations states
   const [showCancelId, setShowCancelId] = useState(null);
@@ -267,6 +268,41 @@ export default function PatientDashboard({ user, onLogout }) {
     } else {
       return 'Dr. Amit Verma (General Physician)';
     }
+  };
+
+  // Voice symptoms capture
+  const handleVoiceCapture = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert('Speech recognition is not supported in this browser.');
+      return;
+    }
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    
+    recognition.onstart = () => {
+      setIsRecordingVoice(true);
+    };
+    
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setBookingForm(prev => ({
+        ...prev,
+        symptoms: prev.symptoms ? prev.symptoms + ' ' + transcript : transcript
+      }));
+    };
+    
+    recognition.onerror = (event) => {
+      console.error('Speech recognition error', event.error);
+      setIsRecordingVoice(false);
+    };
+    
+    recognition.onend = () => {
+      setIsRecordingVoice(false);
+    };
+    
+    recognition.start();
   };
 
   // Handle open booking modal
@@ -1220,6 +1256,15 @@ export default function PatientDashboard({ user, onLogout }) {
                     🤖 <strong>AI Doctor Suggestion:</strong> {getSuggestedDoctor(bookingForm.symptoms)}
                   </div>
                 )}
+
+                <button 
+                  type="button" 
+                  onClick={handleVoiceCapture} 
+                  className="btn-action" 
+                  style={{ width: '100%', marginBottom: '16px', backgroundColor: isRecordingVoice ? '#fecaca' : '#e0e7ff', color: isRecordingVoice ? '#dc2626' : '#4f46e5', fontWeight: 'bold' }}
+                >
+                  {isRecordingVoice ? '🎙️ Recording... Speak now' : '🎙️ Use Voice to Capture Symptoms'}
+                </button>
 
                 <div style={{ display: 'flex', gap: '12px' }}>
                   <button type="button" className="btn-submit" style={{ backgroundColor: '#f1f5f9', color: '#475569', flex: 1 }} onClick={() => { setShowModal(false); setSelectedHospital(null); }}>
