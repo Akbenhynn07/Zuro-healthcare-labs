@@ -2354,4 +2354,65 @@ input:checked + .switch-slider:before {
   border-color: #25d366;
 }
 
+/* --- Mobile Responsiveness Adjustments --- */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+  .filter-action-bar {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .filter-action-bar > div {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+  .search-input-wrapper input, .form-select {
+    width: 100% !important;
+  }
+  .stat-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .main-panel {
+    padding: 16px !important;
+  }
+  .custom-chart-flex {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+  }
+  .dashboard-sidebar {
+    padding: 16px !important;
+  }
+  .sidebar-menu-item {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  .hospital-grid, .branch-grid, .features-grid, .auth-features-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .login-card {
+    padding: 32px 24px 24px 24px;
+    margin: 16px;
+    max-width: 100%;
+  }
+  .console-table th, .console-table td {
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ai-insights-panel > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
